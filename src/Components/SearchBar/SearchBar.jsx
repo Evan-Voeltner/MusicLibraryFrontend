@@ -1,7 +1,5 @@
 const SearchBar = (props) => {
-    return ( 
-        <div></div>
-     );
-}
- 
+  return <form><h1></h1></form>;
+};
+
 export default SearchBar;
