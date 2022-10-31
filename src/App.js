@@ -10,6 +10,7 @@ function App() {
 
   useEffect(() => {
     getAllSongs();
+    setSongFilter({title: '', artist: '', album: '', genre: '', release_date: ''});
   }, [])
 
   async function getAllSongs(){

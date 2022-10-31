@@ -46,7 +46,6 @@ const MusicTable = (props) => {
                 <button onClick={props.deleteSongProperty.bind(this, entry.id)}>
                   Delete Song
                 </button>
-                <button>Edit Song</button>
               </tr>
             );
           })}
