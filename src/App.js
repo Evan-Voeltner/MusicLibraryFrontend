@@ -6,6 +6,7 @@ import SearchBar from "./Components/SearchBar/SearchBar";
 
 function App() {
   const [songs, setSongs] = useState([]);
+  const [songFilter, setSongFilter] = useState([]);
 
   useEffect(() => {
     getAllSongs();
@@ -31,11 +32,16 @@ function App() {
     }
   }
 
+  function filterSong(song){
+    setSongFilter(song)
+    console.log(song)
+  }
+
   return (
     <div>
-      <MusicTable songEntries={songs} deleteSongProperty={deleteSong} />
+      <SearchBar filterSongProperty={filterSong}/>
+      <MusicTable songEntries={songs} deleteSongProperty={deleteSong} songFilter={songFilter}/>
       <SongSubmit addNewSongProperty={addNewSong} />
-      <SearchBar />
     </div>
   );
 }
