@@ -11,5 +11,3 @@ describe('SongSubmit Form Test', () => {
 
   })
 })
-
-describe('SearchBar')
