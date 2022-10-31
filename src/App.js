@@ -33,14 +33,9 @@ function App() {
     }
   }
 
-  function filterSong(song){
-    setSongFilter(song)
-    console.log(song)
-  }
-
   return (
     <div>
-      <SearchBar filterSongProperty={filterSong}/>
+      <SearchBar filterSongProperty={setSongFilter}/>
       <MusicTable songEntries={songs} deleteSongProperty={deleteSong} songFilter={songFilter}/>
       <SongSubmit addNewSongProperty={addNewSong} />
     </div>
