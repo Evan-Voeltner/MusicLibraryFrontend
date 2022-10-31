@@ -22,15 +22,21 @@ const MusicTable = (props) => {
             ) {
               return true;
             } else {
-              if (
-                song.title === props.songFilter.title ||
-                song.artist === props.songFilter.artist ||
-                song.album === props.songFilter.album ||
-                song.genre === props.songFilter.genre ||
-                song.release_date === props.songFilter.release_date
-              ) {
+              var filterMatches = true;
+              for (const [key, value] of Object.entries(props.songFilter)) {
+                if (value === "") {
+                  console.log(key, value);
+                  continue;
+                } else if (song[key] === props.songFilter[key]) {
+                  continue;
+                } else {
+                  filterMatches = false;
+                }
+              }
+              if (filterMatches) {
                 return true;
               } else {
+              
                 return false;
               }
             }
