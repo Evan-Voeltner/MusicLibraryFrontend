@@ -7,14 +7,6 @@ import SearchBar from "./Components/SearchBar/SearchBar";
 function App() {
   const [songs, setSongs] = useState([]);
 
-  // {
-  //   title: "Sad Machine",
-  //   artist: "Porter Robinson",
-  //   album: "Worlds",
-  //   genre: "EDM",
-  //   release_date: "8-23-2014",
-  // }
-
   useEffect(() => {
     getAllSongs();
   }, [])
@@ -31,9 +23,17 @@ function App() {
     }
   }
 
+  async function deleteSong(songPK) {
+    console.log(songPK);
+    let response = await axios.delete(`http://127.0.0.1:8000/api/music/${songPK}/`);
+    if(response.status === 204){
+      await getAllSongs();
+    }
+  }
+
   return (
     <div>
-      <MusicTable songEntries={songs} />
+      <MusicTable songEntries={songs} deleteSongProperty={deleteSong} />
       <SongSubmit addNewSongProperty={addNewSong} />
       <SearchBar />
     </div>

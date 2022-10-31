@@ -19,6 +19,10 @@ const MusicTable = (props) => {
               <td>{entry.album}</td>
               <td>{entry.genre}</td>
               <td>{entry.release_date}</td>
+              <button onClick={props.deleteSongProperty.bind(this, entry.id)}>
+                Delete Song
+              </button>
+              <button>Edit Song</button>
             </tr>
           );
         })}
